@@ -3,11 +3,13 @@ import { s } from "./Home.style";
 import { Txt } from "../../components/Txt/Txt";
 import { BasicWeatherInfo } from "../../components/BasicWeatherInfo/BasicWeatherInfo";
 
-export function Home({}) {
+export function Home({ weather}) {
+  const currentWeather = weather.current_weather
+  
   return (
     <>
       <View style={s.basic_weather_info}>
-        <BasicWeatherInfo/>
+        <BasicWeatherInfo temp={Math.round(currentWeather.temperature)}/>
       </View>
       <View style={s.search_bar_container}>
         <Txt style={s.text}>Search</Txt>

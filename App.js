@@ -9,15 +9,25 @@ import {
   requestForegroundPermissionsAsync,
 } from "expo-location";
 import { MeteoAPI } from "./api/weather";
+import {
+  useFonts,
+  Saira_400Regular,
+  Saira_700Bold,
+} from "@expo-google-fonts/saira";
 
 export default function App() {
   const [coordinates, setCoordinates] = useState();
   const [weather, setWeather] = useState();
 
+  const [areFontsLoaded] = useFonts({
+    Saira_400Regular,
+    Saira_700Bold,
+  });
+
   useEffect(() => {
     if (coordinates) {
-      fetchWeatherByCoords(coordinates)
-    } 
+      fetchWeatherByCoords(coordinates);
+    }
   }, [coordinates]);
 
   useEffect(() => {
@@ -25,8 +35,8 @@ export default function App() {
   }, []);
 
   async function fetchWeatherByCoords(coords) {
-    const weatherByCoords = await MeteoAPI.fetchWeatherByCoords(coords)
-    setWeather(weatherByCoords)
+    const weatherByCoords = await MeteoAPI.fetchWeatherByCoords(coords);
+    setWeather(weatherByCoords);
   }
 
   async function getUserCoordinates() {
@@ -42,9 +52,6 @@ export default function App() {
     }
   }
 
-  console.log(coordinates)
-  console.log(weather)
-
   return (
     <ImageBackground
       imageStyle={s.img}
@@ -53,7 +60,7 @@ export default function App() {
     >
       <SafeAreaProvider>
         <SafeAreaView style={s.container}>
-          <Home />
+          {areFontsLoaded && <Home />}
         </SafeAreaView>
       </SafeAreaProvider>
     </ImageBackground>

@@ -13,5 +13,6 @@ export const s = StyleSheet.create({
   text: {
     color: "white",
     fontSize: 24,
+    fontFamily: "Saira_400Regular"
   }
 });

@@ -2,14 +2,19 @@ import { Image, TouchableOpacity, View } from "react-native";
 import { s } from "./Home.style";
 import { Txt } from "../../components/Txt/Txt";
 import { BasicWeatherInfo } from "../../components/BasicWeatherInfo/BasicWeatherInfo";
+import { getWeatherInterpretation } from "../../utils/weather-utils";
 
-export function Home({ weather}) {
-  const currentWeather = weather.current_weather
-  
+export function Home({ weather }) {
+  const currentWeather = weather.current_weather;
+  const currentInterpretation = getWeatherInterpretation(currentWeather.weathercode);
+
   return (
     <>
       <View style={s.basic_weather_info}>
-        <BasicWeatherInfo temp={Math.round(currentWeather.temperature)}/>
+        <BasicWeatherInfo
+          interpretation={currentInterpretation}
+          temp={Math.round(currentWeather.temperature)}
+        />
       </View>
       <View style={s.search_bar_container}>
         <Txt style={s.text}>Search</Txt>

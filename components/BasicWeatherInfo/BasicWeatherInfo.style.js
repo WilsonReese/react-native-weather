@@ -21,8 +21,7 @@ export const s = StyleSheet.create({
     fontSize: 130,
   },
   image: {
-    height: 50,
-    width: 50,
-    backgroundColor: "green",
+    height: 100,
+    width: 120,
   },
 });

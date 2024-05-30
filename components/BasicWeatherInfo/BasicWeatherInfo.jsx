@@ -12,10 +12,10 @@ export function BasicWeatherInfo({}) {
         <Txt>City</Txt>
       </View>
       <View style={s.interpretation}>
-        <Txt>Interpretation</Txt>
+        <Txt style={s.interpretation_txt}>Sunny</Txt>
       </View>
       <View style={s.temperature_box}>
-        <Txt style={s.temp}>Temp</Txt>
+        <Txt style={s.temp}>-25°</Txt>
         <Image style={s.image}/>
       </View>
     </>

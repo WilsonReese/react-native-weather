@@ -7,4 +7,3 @@ export const s = StyleSheet.create({
     fontFamily: "Saira_400Regular",
   },
 });
-

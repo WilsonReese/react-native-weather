@@ -1,12 +1,13 @@
 import { Image, TouchableOpacity, View } from "react-native";
 import { s } from "./BasicWeatherInfo.style";
 import { Txt } from "../../components/Txt/Txt";
+import { Clock } from "../Clock/Clock";
 
 export function BasicWeatherInfo({temp, interpretation}) {
   return (
     <>
       <View style={s.clock}>
-        <Txt>Clock</Txt>
+        <Clock/>
       </View>
       <View style={s.city}>
         <Txt>City</Txt>

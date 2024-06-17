@@ -7,7 +7,9 @@ import { AdvancedWeatherInfo } from "../../components/AdvancedWeatherInfo/Advanc
 
 export function Home({ weather, city }) {
   const currentWeather = weather.current_weather;
-  const currentInterpretation = getWeatherInterpretation(currentWeather.weathercode);
+  const currentInterpretation = getWeatherInterpretation(
+    currentWeather.weathercode
+  );
 
   return (
     <>
@@ -22,7 +24,11 @@ export function Home({ weather, city }) {
         <Txt style={s.text}>Search</Txt>
       </View>
       <View style={s.advanced_weather_info}>
-        <AdvancedWeatherInfo />
+        <AdvancedWeatherInfo
+          windspeed={currentWeather.windspeed}
+          sunrise={weather.daily.sunrise[0].split("T")[1]}
+          sunset={weather.daily.sunset[0].split("T")[1]}
+        />
       </View>
     </>
   );

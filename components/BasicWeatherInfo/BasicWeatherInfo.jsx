@@ -3,14 +3,14 @@ import { s } from "./BasicWeatherInfo.style";
 import { Txt } from "../../components/Txt/Txt";
 import { Clock } from "../Clock/Clock";
 
-export function BasicWeatherInfo({temp, interpretation}) {
+export function BasicWeatherInfo({temp, interpretation, city}) {
   return (
     <>
       <View style={s.clock}>
         <Clock/>
       </View>
       <View style={s.city}>
-        <Txt>City</Txt>
+        <Txt>{city}</Txt>
       </View>
       <View style={s.interpretation}>
         <Txt style={s.interpretation_txt}>{interpretation.label}</Txt>

@@ -18,6 +18,7 @@ import {
 export default function App() {
   const [coordinates, setCoordinates] = useState();
   const [weather, setWeather] = useState();
+  const [city, setCity] = useState();
 
   const [areFontsLoaded] = useFonts({
     Saira_400Regular,
@@ -27,6 +28,7 @@ export default function App() {
   useEffect(() => {
     if (coordinates) {
       fetchWeatherByCoords(coordinates);
+      fetchCityByCoords(coordinates);
     }
   }, [coordinates]);
 
@@ -37,6 +39,11 @@ export default function App() {
   async function fetchWeatherByCoords(coords) {
     const weatherByCoords = await MeteoAPI.fetchWeatherByCoords(coords);
     setWeather(weatherByCoords);
+  }
+
+  async function fetchCityByCoords(coords) {
+    const cityByCoords = await MeteoAPI.fetchCityByCoords(coords);
+    setCity(cityByCoords);
   }
 
   async function getUserCoordinates() {
@@ -60,7 +67,7 @@ export default function App() {
     >
       <SafeAreaProvider>
         <SafeAreaView style={s.container}>
-          {areFontsLoaded && weather && <Home weather={weather}/>}
+          {areFontsLoaded && weather && <Home city={city} weather={weather}/>}
         </SafeAreaView>
       </SafeAreaProvider>
     </ImageBackground>

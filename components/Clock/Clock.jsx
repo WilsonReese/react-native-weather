@@ -7,7 +7,6 @@ export function Clock({}) {
   const [time, setTime] = useState(convertNowToHHMM);
 
   useEffect(() => {
-    // updateTime(); // Initial call to set the time immediately
     const intervalId = setInterval(() => {
       setTime(convertNowToHHMM());
     }, 1000); // Update every second

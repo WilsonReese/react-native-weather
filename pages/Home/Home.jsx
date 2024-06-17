@@ -4,7 +4,7 @@ import { Txt } from "../../components/Txt/Txt";
 import { BasicWeatherInfo } from "../../components/BasicWeatherInfo/BasicWeatherInfo";
 import { getWeatherInterpretation } from "../../utils/weather-utils";
 
-export function Home({ weather }) {
+export function Home({ weather, city }) {
   const currentWeather = weather.current_weather;
   const currentInterpretation = getWeatherInterpretation(currentWeather.weathercode);
 
@@ -12,6 +12,7 @@ export function Home({ weather }) {
     <>
       <View style={s.basic_weather_info}>
         <BasicWeatherInfo
+          city={city}
           interpretation={currentInterpretation}
           temp={Math.round(currentWeather.temperature)}
         />
